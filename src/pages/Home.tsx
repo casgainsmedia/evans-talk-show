@@ -19,14 +19,14 @@ export default function Home() {
         <div className="flex gap-16 marquee whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.24em] text-paper/70">
           {marquee.map((b, i) => (
             <span key={i} className="shrink-0 flex items-center gap-16">
-              <span className="w-1 h-1 bg-gold rounded-full" />
+              <span className="w-1 h-1 bg-signal rounded-full shadow-[0_0_12px_rgba(32,214,255,0.7)]" />
               {b}
             </span>
           ))}
         </div>
       </section>
 
-      <section className="bg-[#090909] border-b border-paper/10">
+      <section className="bg-bone border-b border-signal/10">
         <div className="container-edge py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
             <div className="lg:col-span-7">
@@ -93,7 +93,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[linear-gradient(180deg,#120808_0%,#090909_100%)] border-b border-paper/10">
+      <section className="bg-[linear-gradient(180deg,#061A3A_0%,#071321_62%,#03070D_100%)] border-b border-signal/10">
         <div className="container-edge py-20 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             <div className="lg:col-span-4">
@@ -106,17 +106,17 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="border border-paper/10 bg-black/30 p-5">
+              <div className="border border-signal/15 bg-black/30 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-signal mb-3">Base</p>
                 <p className="text-paper font-semibold text-2xl tracking-tight mb-2">Nashville</p>
                 <p className="text-paper/72 text-sm leading-relaxed">The channel is now hosted from Nashville, Tennessee and keeps the same grounded newsroom feel.</p>
               </div>
-              <div className="border border-paper/10 bg-black/30 p-5">
+              <div className="border border-signal/15 bg-black/30 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-signal mb-3">Tone</p>
                 <p className="text-paper font-semibold text-2xl tracking-tight mb-2">Direct</p>
                 <p className="text-paper/72 text-sm leading-relaxed">Sharp commentary, quick context, and no attempt to disguise the editorial point of view.</p>
               </div>
-              <div className="border border-paper/10 bg-black/30 p-5">
+              <div className="border border-signal/15 bg-black/30 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-signal mb-3">Coverage</p>
                 <p className="text-paper font-semibold text-2xl tracking-tight mb-2">Fast-Turn</p>
                 <p className="text-paper/72 text-sm leading-relaxed">Politics, media accountability, campaign fallout, and the stories dominating the timeline.</p>
@@ -138,7 +138,7 @@ export default function Home() {
           </div>
           <Link
             to="/work"
-            className="inline-flex items-center gap-3 bg-signal text-paper px-6 py-4 text-[12px] uppercase tracking-[0.2em] font-semibold hover:bg-paper hover:text-ink transition-colors self-start md:self-end"
+            className="inline-flex items-center gap-3 bg-signal text-ink px-6 py-4 text-[12px] uppercase tracking-[0.2em] font-semibold shadow-[0_0_24px_rgba(32,214,255,0.25)] hover:bg-paper hover:text-ink transition-colors self-start md:self-end"
           >
             Open full archive <ArrowRight size={14} strokeWidth={2} />
           </Link>
@@ -146,7 +146,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {recent.map((video, index) => (
-            <article key={video.id} className="border border-paper/10 bg-black/25 p-5 md:p-6">
+            <article key={video.id} className="border border-signal/12 bg-black/25 p-5 md:p-6">
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div>
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-paper/50 mb-2">

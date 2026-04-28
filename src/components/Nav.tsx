@@ -26,7 +26,7 @@ export default function Nav() {
       className={[
         'fixed top-0 inset-x-0 z-50 transition-[background,border,color] duration-300',
         scrolled
-          ? 'bg-ink/95 backdrop-blur text-paper border-b border-paper/10 shadow-[0_12px_30px_rgba(0,0,0,0.35)]'
+          ? 'bg-ink/95 backdrop-blur text-paper border-b border-signal/15 shadow-[0_12px_30px_rgba(0,0,0,0.35),0_0_28px_rgba(32,214,255,0.08)]'
           : 'bg-transparent text-paper border-b border-transparent',
       ].join(' ')}
     >
@@ -38,13 +38,13 @@ export default function Nav() {
         >
           {portraitOk ? (
             <img
-              src="/brand-profile.png"
+              src="/brand-profile-blue.png"
               alt={SITE.network}
               onError={() => setPortraitOk(false)}
-              className="w-11 h-11 md:w-14 md:h-14 rounded-full object-cover object-center ring-2 ring-signal/70 shadow-[0_0_0_1px_rgba(255,255,255,0.06)]"
+              className="w-11 h-11 md:w-14 md:h-14 rounded-full object-cover object-center ring-2 ring-signal/80 shadow-[0_0_18px_rgba(32,214,255,0.22)]"
             />
           ) : (
-            <span className="inline-flex items-center justify-center w-7 h-7 bg-signal text-paper font-mono text-[10px] font-bold">
+            <span className="inline-flex items-center justify-center w-7 h-7 bg-signal text-ink font-mono text-[10px] font-bold">
               {SITE.brandMark}
             </span>
           )}
@@ -80,8 +80,8 @@ export default function Nav() {
             className={[
               'text-[12px] uppercase tracking-[0.18em] font-semibold px-4 py-2 transition-colors',
               scrolled
-                ? 'bg-signal text-paper hover:bg-paper hover:text-ink'
-                : 'bg-paper text-ink hover:bg-signal hover:text-paper',
+                ? 'bg-signal text-ink hover:bg-paper hover:text-ink'
+                : 'bg-paper text-ink hover:bg-signal hover:text-ink',
             ].join(' ')}
           >
             Watch →
@@ -98,7 +98,7 @@ export default function Nav() {
       </div>
 
       {open && (
-        <nav className="md:hidden bg-[#0B0B0B] text-paper border-t border-paper/10">
+        <nav className="md:hidden bg-bone text-paper border-t border-signal/15">
           <ul className="container-edge py-4">
             {links.map((l) => (
               <li key={l.to}>

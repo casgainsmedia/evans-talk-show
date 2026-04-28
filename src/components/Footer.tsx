@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer className="mt-24 md:mt-40 bg-navy text-paper">
       {/* Big CTA strip */}
-      <div className="container-edge py-20 md:py-28 border-b border-paper/10">
+      <div className="container-edge py-20 md:py-28 border-b border-signal/15">
         <p className="eyebrow text-paper/50 mb-6">Get in touch</p>
         <Link
           to="/contact"
@@ -35,9 +35,9 @@ export default function Footer() {
         <div className="col-span-2 md:col-span-5">
           <div className="mb-5 flex items-center gap-4">
             <img
-              src="/brand-profile.png"
+              src="/brand-profile-blue.png"
               alt={SITE.network}
-              className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover object-center ring-2 ring-signal/70"
+              className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover object-center ring-2 ring-signal/80 shadow-[0_0_18px_rgba(32,214,255,0.2)]"
               onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
             />
             <div>
@@ -84,7 +84,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-paper/10">
+      <div className="border-t border-signal/15">
         <div className="container-edge py-6 flex flex-col sm:flex-row justify-between gap-2 text-[11px] uppercase tracking-[0.18em] text-paper/40 font-mono">
           <span>© {year} {SITE.name}. All rights reserved.</span>
           <span>{SITE.channelHandle}</span>

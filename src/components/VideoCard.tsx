@@ -16,7 +16,7 @@ export default function VideoCard({ video, index, large }: Props) {
       <div
         className={[
           'relative w-full aspect-video bg-ink overflow-hidden cursor-pointer',
-          'ring-1 ring-paper/10 shadow-[0_20px_50px_rgba(0,0,0,0.35)]',
+          'ring-1 ring-signal/15 shadow-[0_20px_50px_rgba(0,0,0,0.35),0_0_28px_rgba(32,214,255,0.08)]',
         ].join(' ')}
         onClick={() => setActive(true)}
       >
@@ -43,7 +43,7 @@ export default function VideoCard({ video, index, large }: Props) {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-ink/0" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-signal text-paper transition-transform duration-300 group-hover:scale-110">
+              <span className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-[#FF0000] text-white transition-transform duration-300 group-hover:scale-110 shadow-[0_0_28px_rgba(255,0,0,0.28)]">
                 <Play size={large ? 28 : 22} strokeWidth={2} fill="currentColor" />
               </span>
             </div>
@@ -58,7 +58,7 @@ export default function VideoCard({ video, index, large }: Props) {
               rel="noreferrer"
               onClick={(e) => e.stopPropagation()}
               aria-label="Open on YouTube"
-              className="absolute top-4 right-4 w-9 h-9 inline-flex items-center justify-center bg-paper/90 text-ink hover:bg-signal hover:text-paper transition-colors"
+              className="absolute top-4 right-4 w-9 h-9 inline-flex items-center justify-center bg-paper/90 text-ink hover:bg-signal hover:text-ink transition-colors"
             >
               <ExternalLink size={14} strokeWidth={2} />
             </a>

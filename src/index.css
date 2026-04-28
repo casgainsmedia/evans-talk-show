@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 32 29% 94%;
-    --card: 0 0% 8%;
-    --card-foreground: 32 29% 94%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 32 29% 94%;
-    --primary: 32 29% 94%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 32 29% 94%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 2 82% 56%;
+    --background: 214 63% 3%;
+    --foreground: 210 100% 98%;
+    --card: 214 65% 8%;
+    --card-foreground: 210 100% 98%;
+    --popover: 214 65% 8%;
+    --popover-foreground: 210 100% 98%;
+    --primary: 191 100% 56%;
+    --primary-foreground: 214 63% 3%;
+    --secondary: 218 75% 11%;
+    --secondary-foreground: 210 100% 98%;
+    --muted: 218 75% 11%;
+    --muted-foreground: 212 22% 68%;
+    --accent: 191 100% 56%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 2 82% 46%;
+    --destructive: 350 88% 54%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 2 82% 56%;
+    --border: 213 56% 19%;
+    --input: 213 56% 19%;
+    --ring: 191 100% 56%;
     --radius: 0rem;
   }
 }
@@ -37,17 +37,17 @@
     text-rendering: optimizeLegibility;
     font-feature-settings: "ss01", "ss02";
     background-image:
-      radial-gradient(circle at top left, rgba(255, 59, 48, 0.16), transparent 28%),
-      radial-gradient(circle at top right, rgba(255, 59, 48, 0.1), transparent 24%),
-      linear-gradient(180deg, #050505 0%, #090909 100%);
+      radial-gradient(circle at top left, rgba(32, 214, 255, 0.16), transparent 28%),
+      radial-gradient(circle at top right, rgba(25, 93, 255, 0.12), transparent 24%),
+      linear-gradient(180deg, #03070D 0%, #061120 100%);
   }
   h1, h2, h3, h4, h5 {
     @apply font-sans tracking-[-0.02em] text-ink;
     font-weight: 600;
   }
   ::selection {
-    background: #FF3B30;
-    color: #FFFFFF;
+    background: #20D6FF;
+    color: #020B1F;
   }
 }
 
@@ -56,7 +56,7 @@
     @apply mx-auto w-full max-w-[1440px] px-5 md:px-8 lg:px-12;
   }
   .rule {
-    @apply border-t border-paper/15;
+    @apply border-t border-signal/20;
   }
   .eyebrow {
     @apply font-mono text-[11px] uppercase tracking-[0.15em] text-paper/70;

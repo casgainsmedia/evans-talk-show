@@ -35,7 +35,7 @@ export default function About() {
           <figure className="relative">
             <div className="aspect-[4/5] w-full bg-bone overflow-hidden border border-paper/10 shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
               <img
-                src="/channel-portrait.png"
+                src="/channel-portrait-blue.png"
                 alt={SITE.name}
                 className="w-full h-full object-cover object-center"
               />
@@ -114,7 +114,7 @@ export default function About() {
           <div className="pt-12">
             <Link
               to="/work"
-              className="inline-flex items-center gap-3 bg-signal text-paper px-6 py-4 text-[12px] uppercase tracking-[0.2em] font-semibold hover:bg-paper hover:text-ink transition-colors"
+              className="inline-flex items-center gap-3 bg-signal text-ink px-6 py-4 text-[12px] uppercase tracking-[0.2em] font-semibold shadow-[0_0_24px_rgba(32,214,255,0.25)] hover:bg-paper hover:text-ink transition-colors"
             >
               See the work <ArrowRight size={14} strokeWidth={2} />
             </Link>

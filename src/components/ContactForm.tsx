@@ -77,7 +77,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="group inline-flex items-center gap-4 bg-signal text-paper px-8 py-5 text-[12px] uppercase tracking-[0.2em] font-semibold hover:bg-paper hover:text-ink transition-colors"
+        className="group inline-flex items-center gap-4 bg-signal text-ink px-8 py-5 text-[12px] uppercase tracking-[0.2em] font-semibold shadow-[0_0_24px_rgba(32,214,255,0.25)] hover:bg-paper hover:text-ink transition-colors"
       >
         Send message
         <ArrowRight size={16} strokeWidth={2} className="transition-transform group-hover:translate-x-1" />

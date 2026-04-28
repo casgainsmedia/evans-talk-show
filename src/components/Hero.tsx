@@ -5,7 +5,7 @@ import { SITE } from '@/lib/content'
 export default function Hero() {
   return (
     <section className="relative min-h-[100svh] bg-navy text-paper overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,59,48,0.22),transparent_28%),radial-gradient(circle_at_82%_26%,rgba(255,59,48,0.14),transparent_24%),linear-gradient(180deg,rgba(0,0,0,0.15),rgba(0,0,0,0.75))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(32,214,255,0.24),transparent_28%),radial-gradient(circle_at_82%_26%,rgba(25,93,255,0.18),transparent_24%),radial-gradient(circle_at_85%_78%,rgba(138,92,255,0.16),transparent_22%),linear-gradient(180deg,rgba(2,11,31,0.15),rgba(3,7,13,0.78))]" />
       {/* subtle grid backdrop */}
       <div
         aria-hidden
@@ -20,8 +20,8 @@ export default function Hero() {
       <div className="relative container-edge flex flex-col min-h-[100svh] pt-[96px] pb-14">
         <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           <div className="lg:col-span-6 order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 bg-signal text-paper px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] font-semibold">
-              <span className="w-1.5 h-1.5 bg-paper rounded-full animate-pulse" />
+            <div className="inline-flex items-center gap-2 bg-signal text-ink px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] font-semibold shadow-[0_0_24px_rgba(32,214,255,0.28)]">
+              <span className="w-1.5 h-1.5 bg-ink rounded-full animate-pulse" />
               On Air · {new Date().getFullYear()}
             </div>
 
@@ -66,7 +66,7 @@ export default function Hero() {
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
                 to="/work"
-                className="group inline-flex items-center gap-3 bg-signal text-paper px-6 py-4 text-[12px] uppercase tracking-[0.2em] font-semibold hover:bg-paper hover:text-ink transition-colors"
+                className="group inline-flex items-center gap-3 bg-signal text-ink px-6 py-4 text-[12px] uppercase tracking-[0.2em] font-semibold shadow-[0_0_24px_rgba(32,214,255,0.25)] hover:bg-paper hover:text-ink transition-colors"
               >
                 Watch the work
                 <ArrowRight size={16} strokeWidth={2} className="transition-transform group-hover:translate-x-1" />
@@ -82,19 +82,19 @@ export default function Hero() {
 
           <div className="lg:col-span-6 order-1 lg:order-2">
             <div className="relative max-w-md mx-auto lg:mx-0 lg:ml-auto">
-              <span aria-hidden className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-signal z-10" />
-              <span aria-hidden className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-signal z-10" />
+              <span aria-hidden className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-signal z-10 shadow-[0_0_24px_rgba(32,214,255,0.3)]" />
+              <span aria-hidden className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-gold z-10" />
 
-              <div className="border border-paper/10 bg-black/45 backdrop-blur-sm shadow-[0_30px_80px_rgba(0,0,0,0.55)] overflow-hidden">
+              <div className="border border-signal/20 bg-black/45 backdrop-blur-sm shadow-[0_30px_90px_rgba(0,0,0,0.58),0_0_40px_rgba(32,214,255,0.1)] overflow-hidden">
                 <div className="relative aspect-[4/5]">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(255,59,48,0.16),transparent_30%),linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.42))]" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(32,214,255,0.15),transparent_30%),linear-gradient(180deg,rgba(2,11,31,0.04),rgba(2,11,31,0.44))]" />
                   <img
-                    src="/channel-portrait.png"
+                    src="/channel-portrait-blue.png"
                     alt={`${SITE.name} — ${SITE.role}`}
                     className="w-full h-full object-cover object-[center_18%]"
                   />
                 </div>
-                <div className="border-t border-paper/10 bg-[#0B0B0B] px-5 py-5 md:px-6">
+                <div className="border-t border-signal/20 bg-bone px-5 py-5 md:px-6">
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-signal mb-2">
                     Commentary Desk · Nashville
                   </p>
