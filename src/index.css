@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 32 29% 94%;
+    --card: 0 0% 8%;
+    --card-foreground: 32 29% 94%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 32 29% 94%;
+    --primary: 32 29% 94%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 32 29% 94%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 2 82% 56%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 2 82% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 2 82% 56%;
+    --radius: 0rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "ss02";
+    background-image:
+      radial-gradient(circle at top left, rgba(255, 59, 48, 0.16), transparent 28%),
+      radial-gradient(circle at top right, rgba(255, 59, 48, 0.1), transparent 24%),
+      linear-gradient(180deg, #050505 0%, #090909 100%);
+  }
+  h1, h2, h3, h4, h5 {
+    @apply font-sans tracking-[-0.02em] text-ink;
+    font-weight: 600;
+  }
+  ::selection {
+    background: #FF3B30;
+    color: #FFFFFF;
+  }
+}
+
+@layer utilities {
+  .container-edge {
+    @apply mx-auto w-full max-w-[1440px] px-5 md:px-8 lg:px-12;
+  }
+  .rule {
+    @apply border-t border-paper/15;
+  }
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.15em] text-paper/70;
+  }
+  .display {
+    font-feature-settings: "ss01", "ss02", "ss05";
+    letter-spacing: -0.04em;
+  }
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.3s ease;
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+  .marquee {
+    animation: marquee 40s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
