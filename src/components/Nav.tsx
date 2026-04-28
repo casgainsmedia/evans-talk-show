@@ -1,11 +1,11 @@
 import { NavLink, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, Radio, X } from 'lucide-react'
 import { SITE } from '@/lib/content'
 
 const links = [
   { to: '/about', label: 'About' },
-  { to: '/work', label: 'Work' },
+  { to: '/work', label: 'Archive' },
   { to: '/contact', label: 'Contact' },
 ]
 
@@ -22,113 +22,118 @@ export default function Nav() {
   }, [])
 
   return (
-    <header
-      className={[
-        'fixed top-0 inset-x-0 z-50 transition-[background,border,color] duration-300',
-        scrolled
-          ? 'bg-ink/95 backdrop-blur text-paper border-b border-signal/15 shadow-[0_12px_30px_rgba(0,0,0,0.35),0_0_28px_rgba(32,214,255,0.08)]'
-          : 'bg-transparent text-paper border-b border-transparent',
-      ].join(' ')}
-    >
-      <div className="container-edge flex h-[68px] md:h-[80px] items-center justify-between">
-        <Link
-          to="/"
-          className="flex items-center gap-3 md:gap-4 group"
-          onClick={() => setOpen(false)}
-        >
-          {portraitOk ? (
-            <img
-              src="/brand-profile-blue.png"
-              alt={SITE.network}
-              onError={() => setPortraitOk(false)}
-              className="w-11 h-11 md:w-14 md:h-14 rounded-full object-cover object-center ring-2 ring-signal/80 shadow-[0_0_18px_rgba(32,214,255,0.22)]"
-            />
-          ) : (
-            <span className="inline-flex items-center justify-center w-7 h-7 bg-signal text-ink font-mono text-[10px] font-bold">
-              {SITE.brandMark}
+    <header className="fixed top-0 inset-x-0 z-50 px-3 pt-3 text-paper">
+      <div
+        className={[
+          'mx-auto max-w-[1440px] border transition-[background,border,box-shadow] duration-300',
+          scrolled || open
+            ? 'border-signal/20 bg-ink/92 shadow-[0_14px_44px_rgba(0,0,0,0.42),0_0_30px_rgba(32,214,255,0.08)] backdrop-blur'
+            : 'border-signal/10 bg-black/18 backdrop-blur-sm',
+        ].join(' ')}
+      >
+        <div className="grid h-[64px] grid-cols-[minmax(0,1fr)_auto] md:grid-cols-[minmax(260px,0.85fr)_auto_minmax(220px,0.7fr)] items-center">
+          <Link
+            to="/"
+            className="flex min-w-0 items-center gap-3 border-r border-signal/10 px-4 md:px-5 h-full"
+            onClick={() => setOpen(false)}
+          >
+            {portraitOk ? (
+              <img
+                src="/brand-profile-blue.png"
+                alt={SITE.network}
+                onError={() => setPortraitOk(false)}
+                className="h-11 w-11 rounded-full object-cover object-center ring-2 ring-signal/75 shadow-[0_0_18px_rgba(32,214,255,0.24)]"
+              />
+            ) : (
+              <span className="inline-flex h-9 w-9 items-center justify-center bg-signal text-ink font-mono text-[10px] font-bold">
+                {SITE.brandMark}
+              </span>
+            )}
+            <span className="min-w-0">
+              <span className="block truncate font-semibold tracking-[-0.02em] leading-none text-paper">
+                {SITE.name}
+              </span>
+              <span className="mt-1 hidden sm:block font-mono text-[10px] uppercase tracking-[0.2em] text-signal/90">
+                {SITE.channelHandle}
+              </span>
             </span>
-          )}
-          <span className="hidden sm:block">
-            <span className="block font-mono text-[10px] uppercase tracking-[0.22em] text-signal/90 mb-0.5">
+          </Link>
+
+          <nav className="hidden md:flex h-full items-center">
+            {links.map((l) => (
+              <NavLink
+                key={l.to}
+                to={l.to}
+                className={({ isActive }) =>
+                  [
+                    'flex h-full items-center border-r border-signal/10 px-6 text-[11px] uppercase tracking-[0.2em] font-semibold transition-colors',
+                    isActive ? 'bg-signal text-ink' : 'text-paper/62 hover:bg-signal/[0.08] hover:text-signal',
+                  ].join(' ')
+                }
+              >
+                {l.label}
+              </NavLink>
+            ))}
+          </nav>
+
+          <div className="hidden md:flex h-full items-center justify-end gap-3 px-5">
+            <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-paper/50">
+              <span className="h-1.5 w-1.5 rounded-full bg-signal shadow-[0_0_10px_rgba(32,214,255,0.8)]" />
               Nashville Desk
             </span>
-            <span className="block font-sans text-[16px] md:text-[18px] font-semibold tracking-tight leading-none">
-              {SITE.name}
-            </span>
-          </span>
-        </Link>
-
-        <nav className="hidden md:flex items-center gap-9">
-          {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              className={({ isActive }) =>
-                [
-                  'text-[12px] uppercase tracking-[0.18em] font-medium transition-opacity',
-                  isActive ? 'opacity-100' : 'opacity-60 hover:opacity-100',
-                ].join(' ')
-              }
+            <a
+              href={SITE.channelUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 bg-paper text-ink px-4 py-2 text-[11px] uppercase tracking-[0.18em] font-semibold hover:bg-signal transition-colors"
             >
-              {l.label}
-            </NavLink>
-          ))}
-          <a
-            href={SITE.channelUrl}
-            target="_blank"
-            rel="noreferrer"
-            className={[
-              'text-[12px] uppercase tracking-[0.18em] font-semibold px-4 py-2 transition-colors',
-              scrolled
-                ? 'bg-signal text-ink hover:bg-paper hover:text-ink'
-                : 'bg-paper text-ink hover:bg-signal hover:text-ink',
-            ].join(' ')}
+              <Radio size={13} strokeWidth={2.25} />
+              Watch
+            </a>
+          </div>
+
+          <button
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden inline-flex h-full w-16 items-center justify-center border-l border-signal/10"
           >
-            Watch →
-          </a>
-        </nav>
+            {open ? <X size={22} strokeWidth={1.75} /> : <Menu size={22} strokeWidth={1.75} />}
+          </button>
+        </div>
 
-        <button
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex items-center justify-center w-10 h-10 -mr-2"
-        >
-          {open ? <X size={22} strokeWidth={1.75} /> : <Menu size={22} strokeWidth={1.75} />}
-        </button>
-      </div>
-
-      {open && (
-        <nav className="md:hidden bg-bone text-paper border-t border-signal/15">
-          <ul className="container-edge py-4">
-            {links.map((l) => (
-              <li key={l.to}>
-                <NavLink
-                  to={l.to}
-                  onClick={() => setOpen(false)}
-                  className={({ isActive }) =>
-                    [
-                      'block py-4 text-xl font-semibold tracking-tight border-b border-paper/10',
-                      isActive ? 'text-signal' : 'text-paper',
-                    ].join(' ')
-                  }
+        {open && (
+          <nav className="md:hidden border-t border-signal/12 bg-bone/96">
+            <ul>
+              {links.map((l) => (
+                <li key={l.to}>
+                  <NavLink
+                    to={l.to}
+                    onClick={() => setOpen(false)}
+                    className={({ isActive }) =>
+                      [
+                        'block border-b border-paper/10 px-5 py-4 text-xl font-semibold tracking-[-0.02em]',
+                        isActive ? 'bg-signal text-ink' : 'text-paper',
+                      ].join(' ')
+                    }
+                  >
+                    {l.label}
+                  </NavLink>
+                </li>
+              ))}
+              <li>
+                <a
+                  href={SITE.channelUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block px-5 py-4 text-xl font-semibold tracking-[-0.02em] text-signal"
                 >
-                  {l.label}
-                </NavLink>
+                  Watch on YouTube
+                </a>
               </li>
-            ))}
-            <li>
-              <a
-                href={SITE.channelUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="block py-4 text-xl font-semibold tracking-tight text-signal"
-              >
-                Watch on YouTube →
-              </a>
-            </li>
-          </ul>
-        </nav>
-      )}
+            </ul>
+          </nav>
+        )}
+      </div>
     </header>
   )
 }

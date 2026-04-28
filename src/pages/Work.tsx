@@ -1,82 +1,132 @@
 import VideoCard from '@/components/VideoCard'
 import { VIDEOS, SITE } from '@/lib/content'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
 
 export default function Work() {
+  const lead = VIDEOS[0]
+  const rest = VIDEOS.slice(1)
+
   return (
     <>
-      {/* Title */}
-      <section className="container-edge pt-36 md:pt-44 pb-12 md:pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          <div className="md:col-span-3">
-            <p className="eyebrow">Work · Archive</p>
-          </div>
-          <div className="md:col-span-9">
-            <h1 className="display font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-[88px] leading-[1.0] tracking-[-0.04em] text-paper max-w-5xl">
-              Every episode of {SITE.show}, catalogued and ready to watch — sharp commentary built around politics, media narratives, and breaking headlines.
-            </h1>
-            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-paper/60 max-w-xl">
-              Click any thumbnail to play in place · read the summary if you can't listen
-            </p>
+      <section className="relative overflow-hidden border-b border-signal/10 bg-navy">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(32,214,255,0.2),transparent_28%),radial-gradient(circle_at_84%_14%,rgba(25,93,255,0.18),transparent_26%),linear-gradient(180deg,rgba(2,11,31,0.3),#03070D_92%)]" />
+        <div className="relative container-edge pt-36 md:pt-44 pb-16 md:pb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] gap-8">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-signal">
+                Work / Archive
+              </p>
+            </div>
+            <div>
+              <h1 className="display font-semibold text-4xl sm:text-6xl lg:text-[90px] leading-[0.94] tracking-[-0.04em] text-paper max-w-6xl">
+                Episode archive built like a control-room log.
+              </h1>
+              <p className="mt-7 max-w-2xl text-paper/70 leading-relaxed">
+                Every upload stays close to the surface: newest episode first, summary beside the playback, and the rest arranged for quick scanning.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Episode list with summaries */}
-      <section className="bg-bone border-t border-paper/10">
-        <div className="container-edge py-20 md:py-28">
-          <ul className="space-y-20 md:space-y-28">
-            {VIDEOS.map((v, i) => (
-              <li key={v.id} className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 pt-16 first:pt-0 border-t first:border-t-0 border-paper/10">
-                {/* Number + meta rail */}
-                <div className="lg:col-span-1">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-paper/50">
-                    Ep. {String(VIDEOS.length - i).padStart(2, '0')}
-                  </p>
-                </div>
-
-                {/* Video */}
-                <div className="lg:col-span-5">
-                  <VideoCard video={v} index={i} />
-                </div>
-
-                {/* Summary */}
-                <div className="lg:col-span-6">
-                  <p className="eyebrow mb-3">Summary</p>
-                  {v.summary ? (
-                    <div className="space-y-5 text-[15.5px] md:text-base leading-[1.65] text-paper/85">
-                      {v.summary.map((para, pi) => (
-                        <p key={pi} className={pi === v.summary!.length - 1 ? 'text-paper/70 pt-2 border-t border-paper/10' : ''}>
-                          {para}
-                        </p>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="text-sm text-paper/50 italic">Summary coming soon.</p>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
+      <section className="bg-bone border-b border-signal/10">
+        <div className="container-edge py-14 md:py-20">
+          <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,0.68fr)_minmax(320px,0.32fr)] gap-8">
+            <div>
+              <p className="font-sans text-sm uppercase tracking-[0.18em] text-signal font-semibold mb-5">
+                Current Lead
+              </p>
+              <VideoCard video={lead} large />
+            </div>
+            <aside className="border border-signal/14 bg-black/25 p-6 md:p-7">
+              <div className="flex items-center justify-between gap-4 border-b border-signal/14 pb-5 mb-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-signal">
+                  Ep. {String(VIDEOS.length).padStart(2, '0')}
+                </p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-paper/48">
+                  {lead.date}
+                </p>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.03em] leading-[1.04] text-paper">
+                {lead.title}
+              </h2>
+              <div className="mt-6 space-y-4 text-paper/74 leading-relaxed">
+                {lead.summary?.map((para) => (
+                  <p key={para}>{para}</p>
+                ))}
+              </div>
+              <a
+                href={`https://www.youtube.com/watch?v=${lead.id}`}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-8 inline-flex items-center gap-3 bg-signal text-ink px-5 py-3.5 text-[12px] uppercase tracking-[0.2em] font-semibold shadow-[0_0_24px_rgba(32,214,255,0.22)] hover:bg-paper transition-colors"
+              >
+                Watch on YouTube <ArrowRight size={14} strokeWidth={2} />
+              </a>
+            </aside>
+          </div>
         </div>
       </section>
 
-      {/* YT CTA */}
-      <section className="container-edge py-24 md:py-32">
+      <section className="container-edge py-16 md:py-24">
+        <div className="mb-8 grid grid-cols-1 md:grid-cols-[180px_minmax(0,1fr)] gap-6">
+          <p className="font-sans text-sm uppercase tracking-[0.18em] text-signal font-semibold">
+            Index
+          </p>
+          <h2 className="display font-semibold text-4xl md:text-6xl leading-[1] tracking-[-0.04em] text-paper max-w-5xl">
+            More episodes in the queue.
+          </h2>
+        </div>
+
+        <ul className="border-y border-signal/15">
+          {rest.map((video, index) => (
+            <li key={video.id} className="group grid grid-cols-1 lg:grid-cols-[96px_minmax(260px,0.36fr)_minmax(0,1fr)_56px] gap-5 lg:gap-8 border-t first:border-t-0 border-paper/10 py-7 md:py-8">
+              <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-paper/46">
+                {String(VIDEOS.length - index - 1).padStart(2, '0')}
+              </div>
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-signal mb-3">
+                  {video.date}
+                </p>
+                <h3 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] leading-[1.06] text-paper group-hover:text-signal transition-colors">
+                  {video.title}
+                </h3>
+              </div>
+              <p className="text-sm md:text-[15px] leading-relaxed text-paper/68">
+                {video.summary?.[0]}
+              </p>
+              <a
+                href={`https://www.youtube.com/watch?v=${video.id}`}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Watch ${video.title} on YouTube`}
+                className="self-start lg:self-center justify-self-start lg:justify-self-end inline-flex h-12 w-12 items-center justify-center border border-signal/18 bg-signal/[0.05] text-paper group-hover:bg-signal group-hover:text-ink transition-colors"
+              >
+                <ArrowUpRight size={18} strokeWidth={2} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="bg-[linear-gradient(180deg,#061A3A_0%,#03070D_100%)] border-t border-signal/10">
         <a
           href={SITE.channelUrl}
           target="_blank"
           rel="noreferrer"
-          className="group flex flex-col md:flex-row items-start md:items-end justify-between gap-6 border-t border-paper/15 pt-10"
+          className="container-edge group py-20 md:py-28 grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_96px] gap-8 items-end"
         >
-          <h2 className="display font-semibold text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.03em] text-paper max-w-4xl">
-            Watch the full archive, subscribe for new episodes, and join the conversation in the comments on YouTube.
-          </h2>
-          <ArrowUpRight
-            size={64}
-            strokeWidth={1.5}
-            className="shrink-0 text-paper group-hover:text-signal transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-          />
+          <div>
+            <p className="font-sans text-sm uppercase tracking-[0.18em] text-signal font-semibold mb-5">
+              YouTube Channel
+            </p>
+            <h2 className="display font-semibold text-4xl md:text-6xl lg:text-[76px] leading-[0.98] tracking-[-0.04em] text-paper max-w-6xl">
+              Subscribe for new episodes and follow the conversation where it moves fastest.
+            </h2>
+          </div>
+          <span className="inline-flex h-20 w-20 items-center justify-center border border-signal/25 bg-signal/[0.08] text-signal group-hover:bg-signal group-hover:text-ink transition-colors">
+            <ArrowUpRight size={34} strokeWidth={1.8} />
+          </span>
         </a>
       </section>
     </>

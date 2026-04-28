@@ -12,7 +12,9 @@ export default function VideoCard({ video, index, large }: Props) {
   const watch = `https://www.youtube.com/watch?v=${video.id}`
 
   return (
-    <article className="group flex flex-col">
+    <article className="group grid grid-cols-[12px_minmax(0,1fr)] border border-signal/12 bg-black/18">
+      <div className="bg-[linear-gradient(180deg,rgba(32,214,255,0.8),rgba(25,93,255,0.25),rgba(138,92,255,0.35))]" />
+      <div className="p-3 md:p-4">
       <div
         className={[
           'relative w-full aspect-video bg-ink overflow-hidden cursor-pointer',
@@ -41,14 +43,13 @@ export default function VideoCard({ video, index, large }: Props) {
               loading="lazy"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-ink/0" />
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-[#FF0000] text-white transition-transform duration-300 group-hover:scale-110 shadow-[0_0_28px_rgba(255,0,0,0.28)]">
                 <Play size={large ? 28 : 22} strokeWidth={2} fill="currentColor" />
               </span>
             </div>
             {typeof index === 'number' && (
-              <span className="absolute top-4 left-4 font-mono text-[11px] uppercase tracking-[0.2em] text-paper bg-ink/60 px-2 py-1">
+              <span className="absolute top-4 left-4 font-mono text-[11px] uppercase tracking-[0.2em] text-paper bg-ink/72 border border-signal/18 px-2 py-1">
                 EP {String(index + 1).padStart(2, '0')}
               </span>
             )}
@@ -65,7 +66,7 @@ export default function VideoCard({ video, index, large }: Props) {
           </>
         )}
       </div>
-      <div className="pt-5">
+      <div className="pt-4">
         <div className="flex items-center justify-between mb-2">
           <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-paper/55">
             {video.date ?? '—'}
@@ -80,6 +81,7 @@ export default function VideoCard({ video, index, large }: Props) {
         ].join(' ')}>
           {video.title}
         </h3>
+      </div>
       </div>
     </article>
   )

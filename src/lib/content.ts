@@ -43,7 +43,7 @@ export const SITE = {
 
   credentials: [
     "YouTube channel joined November 10, 2016",
-    "79 subscribers and 13,646 views as checked on April 22, 2026",
+    "119 subscribers and 21 videos as checked on April 29, 2026",
     "Hosted by Evan Mercer in Nashville, TN",
     "Linked to the Evans Talk Show YouTube channel",
   ],
@@ -63,8 +63,44 @@ export type Video = {
   summary?: string[]
 }
 
-// Latest uploads pulled from the provided YouTube channel on April 22, 2026.
+// Latest uploads pulled from the provided YouTube channel on April 29, 2026.
 export const VIDEOS: Video[] = [
+  {
+    id: "GpB2W_Io8Yw",
+    title: "Trump LOSES CONTROL and THREATENS to JAIL JOURNALISTS",
+    date: "Apr 28, 2026",
+    summary: [
+      "The newest episode frames Trump's threat toward journalists as a direct collision between political power and press freedom. The argument centers on what happens when criticism is treated as an offense rather than a democratic constraint.",
+      "On the site, the episode reads as a fast-turn warning about intimidation, media accountability, and the way authoritarian language moves from rally rhetoric into governing posture.",
+    ],
+  },
+  {
+    id: "IQswD53LBK4",
+    title: "Trump DETONATES at Reporter Over SIMPLE Iran Question",
+    date: "Apr 25, 2026",
+    summary: [
+      "This episode uses a tense exchange over Iran to show how quickly a basic policy question can become a loyalty test. The focus is less on the question itself and more on the reaction it triggered.",
+      "For the archive, the summary positions the video as a breakdown of pressure, foreign-policy messaging, and what public outbursts reveal when a leader is pressed on specifics.",
+    ],
+  },
+  {
+    id: "A8lHGr_U6mg",
+    title: "Trump GETS HUMILIATED After His OWN Lawyer EXPOSES Him",
+    date: "Apr 24, 2026",
+    summary: [
+      "This segment is framed around legal exposure coming from inside Trump's own orbit. The video turns that contradiction into a larger story about credibility, defense strategy, and political damage control.",
+      "The site summary treats it as a sharp read on what happens when the people meant to protect a figure end up clarifying the case against him.",
+    ],
+  },
+  {
+    id: "jpNfxc3OfEs",
+    title: "Megyn Kelly Says SHE'S SICK OF TRUMP on LIVE SHOW!",
+    date: "Apr 23, 2026",
+    summary: [
+      "This episode tracks a public break in tone from Megyn Kelly and uses it as a signal of fatigue inside the broader right-wing media ecosystem. The story is presented as more than a single on-air complaint.",
+      "For viewers scanning the archive, it reads as a media-politics piece about audience exhaustion, message discipline, and what changes when allies stop sounding automatic.",
+    ],
+  },
   {
     id: "bBhPUtqvHiI",
     title: "Trump PANICS as INFLATION HITS HIGHEST LEVEL in YEARS!",
@@ -77,7 +113,7 @@ export const VIDEOS: Video[] = [
   {
     id: "DXAFuHUuEpg",
     title: "Alex Jones CALLS FOR Trump's REMOVAL in MAGA SHOCK!",
-    date: "Apr 19, 2026",
+    date: "Apr 18, 2026",
     summary: [
       "This segment is presented as a rupture inside the MAGA ecosystem, using Alex Jones's call for removal as proof that internal loyalty can fracture very quickly once strategic panic sets in. The emphasis is on what it means when criticism comes from inside the coalition rather than from its usual opponents.",
       "The site summary frames the video as a story about movement discipline, factional instability, and how symbolic figures start speaking differently when they sense the political floor shifting.",
@@ -86,7 +122,7 @@ export const VIDEOS: Video[] = [
   {
     id: "ulG9BxKfJYY",
     title: "Trump CAUGHT Pumping Palantir Stock on Truth Social!",
-    date: "Apr 18, 2026",
+    date: "Apr 17, 2026",
     summary: [
       "This video appears to center on market influence, political messaging, and the optics of a president publicly boosting a specific stock. The framing suggests a critique of blurred lines between political power, media reach, and financial gain.",
       "For the site archive, it reads as a tighter analysis of how even a short post can become a larger story about influence, incentives, and whether the audience is watching politics or live market theater.",
@@ -95,7 +131,7 @@ export const VIDEOS: Video[] = [
   {
     id: "WOtOOcUENbk",
     title: "Melania's DARK PAST LEAKS as White House PANICS",
-    date: "Apr 17, 2026",
+    date: "Apr 16, 2026",
     summary: [
       "This episode is positioned like a reputational crisis story, taking an alleged leak and turning it into a broader look at White House vulnerability, image control, and political panic. The core idea is that personal narratives become governing problems once they break into the public arena.",
       "The on-site summary treats it as a commentary piece on damage control and the limits of message discipline when a story starts moving faster than the people trying to contain it.",
@@ -104,7 +140,7 @@ export const VIDEOS: Video[] = [
   {
     id: "21sMBtJW8Ig",
     title: "Israel's Arrow System Cannot Restock — Iran Knows Exactly How Many Shots Are Left",
-    date: "Apr 15, 2026",
+    date: "Apr 14, 2026",
     summary: [
       "This segment appears to focus on military depletion, deterrence, and what happens when a defense system starts looking finite instead of dependable. The title points to an argument about exposure: once an adversary understands the limits, every launch becomes a strategic countdown.",
       "For the website, the summary frames the episode as a clear geopolitical briefing about readiness, leverage, and the dangers of wars that become arithmetic as much as ideology.",

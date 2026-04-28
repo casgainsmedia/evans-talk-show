@@ -16,12 +16,12 @@ export default function ContactForm() {
   }
 
   const field =
-    'w-full bg-transparent border-0 border-b border-paper/20 focus:border-signal outline-none py-4 text-paper placeholder:text-paper/30 text-lg md:text-xl font-medium tracking-tight'
+    'w-full bg-ink/50 border border-signal/12 focus:border-signal outline-none px-4 py-4 text-paper placeholder:text-paper/30 text-base md:text-lg font-medium tracking-tight transition-colors'
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-10">
+    <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
       <div>
-        <label htmlFor="name" className="eyebrow block mb-1">01 · Name</label>
+        <label htmlFor="name" className="eyebrow block mb-2">01 / Name</label>
         <input
           id="name"
           required
@@ -33,7 +33,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="eyebrow block mb-1">02 · Email</label>
+        <label htmlFor="email" className="eyebrow block mb-2">02 / Email</label>
         <input
           id="email"
           type="email"
@@ -45,8 +45,8 @@ export default function ContactForm() {
         />
       </div>
 
-      <div>
-        <label htmlFor="subject" className="eyebrow block mb-1">03 · Subject</label>
+      <div className="md:col-span-2">
+        <label htmlFor="subject" className="eyebrow block mb-2">03 / Subject</label>
         <select
           id="subject"
           value={subject}
@@ -62,29 +62,29 @@ export default function ContactForm() {
         </select>
       </div>
 
-      <div>
-        <label htmlFor="message" className="eyebrow block mb-1">04 · Message</label>
+      <div className="md:col-span-2">
+        <label htmlFor="message" className="eyebrow block mb-2">04 / Message</label>
         <textarea
           id="message"
           required
           rows={5}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className={field + ' resize-none text-base md:text-lg'}
+          className={field + ' min-h-[180px] resize-none text-base md:text-lg'}
           placeholder="Outlet, timeline, and what you have in mind."
         />
       </div>
 
       <button
         type="submit"
-        className="group inline-flex items-center gap-4 bg-signal text-ink px-8 py-5 text-[12px] uppercase tracking-[0.2em] font-semibold shadow-[0_0_24px_rgba(32,214,255,0.25)] hover:bg-paper hover:text-ink transition-colors"
+        className="md:col-span-2 group inline-flex items-center justify-between gap-4 bg-signal text-ink px-6 py-5 text-[12px] uppercase tracking-[0.2em] font-semibold shadow-[0_0_24px_rgba(32,214,255,0.25)] hover:bg-paper hover:text-ink transition-colors"
       >
         Send message
         <ArrowRight size={16} strokeWidth={2} className="transition-transform group-hover:translate-x-1" />
       </button>
 
-      <p className="text-xs text-paper/50 pt-2 font-mono uppercase tracking-[0.15em]">
-        Opens in your mail client ·{' '}
+      <p className="md:col-span-2 text-xs text-paper/50 pt-2 font-mono uppercase tracking-[0.15em]">
+        Opens in your mail client /{' '}
         <a href={`mailto:${SITE.email}`} className="text-paper underline underline-offset-4">
           {SITE.email}
         </a>
