@@ -1,25 +1,25 @@
 import type { Video } from '@/lib/content'
-import { useState } from 'react'
-import { Play, ExternalLink } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { Play } from 'lucide-react'
 
-type Props = { video: Video; index?: number; large?: boolean }
+type Props = { video: Video; index?: number; large?: boolean; autoPlay?: boolean }
 
-export default function VideoCard({ video, index, large }: Props) {
+export default function VideoCard({ video, index, large, autoPlay = false }: Props) {
   const [active, setActive] = useState(false)
   const thumb = `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`
   const thumbFallback = `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`
   const embed = `https://www.youtube-nocookie.com/embed/${video.id}?rel=0&modestbranding=1&autoplay=1`
-  const watch = `https://www.youtube.com/watch?v=${video.id}`
+
+  useEffect(() => {
+    if (autoPlay) {
+      setActive(true)
+    }
+  }, [autoPlay])
 
   return (
-    <article className="group grid grid-cols-[12px_minmax(0,1fr)] border border-signal/12 bg-black/18">
-      <div className="bg-[linear-gradient(180deg,rgba(32,214,255,0.8),rgba(25,93,255,0.25),rgba(138,92,255,0.35))]" />
-      <div className="p-3 md:p-4">
+    <article className="group bg-[#061120]">
       <div
-        className={[
-          'relative w-full aspect-video bg-ink overflow-hidden cursor-pointer',
-          'ring-1 ring-signal/15 shadow-[0_20px_50px_rgba(0,0,0,0.35),0_0_28px_rgba(32,214,255,0.08)]',
-        ].join(' ')}
+        className="relative w-full aspect-video cursor-pointer overflow-hidden border border-signal/16 bg-ink shadow-[0_22px_52px_rgba(0,0,0,0.38),0_0_32px_rgba(32,214,255,0.08)]"
         onClick={() => setActive(true)}
       >
         {active ? (
@@ -29,7 +29,7 @@ export default function VideoCard({ video, index, large }: Props) {
             loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            className="w-full h-full"
+            className="h-full w-full"
           />
         ) : (
           <>
@@ -41,47 +41,40 @@ export default function VideoCard({ video, index, large }: Props) {
               }}
               alt=""
               loading="lazy"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,7,13,0.1),rgba(3,7,13,0.55))]" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-[#FF0000] text-white transition-transform duration-300 group-hover:scale-110 shadow-[0_0_28px_rgba(255,0,0,0.28)]">
+              <span className="flex h-16 w-16 items-center justify-center bg-signal text-ink shadow-[0_0_34px_rgba(32,214,255,0.34)] transition-transform duration-300 group-hover:scale-110 md:h-20 md:w-20">
                 <Play size={large ? 28 : 22} strokeWidth={2} fill="currentColor" />
               </span>
             </div>
             {typeof index === 'number' && (
-              <span className="absolute top-4 left-4 font-mono text-[11px] uppercase tracking-[0.2em] text-paper bg-ink/72 border border-signal/18 px-2 py-1">
+              <span className="absolute left-4 top-4 border border-signal/18 bg-ink/78 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-paper">
                 EP {String(index + 1).padStart(2, '0')}
               </span>
             )}
-            <a
-              href={watch}
-              target="_blank"
-              rel="noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              aria-label="Open on YouTube"
-              className="absolute top-4 right-4 w-9 h-9 inline-flex items-center justify-center bg-paper/90 text-ink hover:bg-signal hover:text-ink transition-colors"
-            >
-              <ExternalLink size={14} strokeWidth={2} />
-            </a>
           </>
         )}
       </div>
-      <div className="pt-4">
-        <div className="flex items-center justify-between mb-2">
+
+      <div className="border-x border-b border-signal/16 bg-black/24 p-4 md:p-5">
+        <div className="mb-3 flex items-center justify-between gap-4">
           <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-paper/55">
-            {video.date ?? '—'}
+            {video.date ?? '-'}
           </span>
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/40">
             Analysis
           </span>
         </div>
-        <h3 className={[
-          'font-semibold tracking-[-0.01em] text-paper leading-[1.15]',
-          large ? 'text-2xl md:text-3xl' : 'text-lg md:text-xl',
-        ].join(' ')}>
+        <h3
+          className={[
+            'font-semibold tracking-normal text-paper leading-[1.15]',
+            large ? 'text-2xl md:text-3xl' : 'text-lg md:text-xl',
+          ].join(' ')}
+        >
           {video.title}
         </h3>
-      </div>
       </div>
     </article>
   )

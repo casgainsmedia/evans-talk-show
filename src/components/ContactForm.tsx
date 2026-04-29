@@ -16,12 +16,12 @@ export default function ContactForm() {
   }
 
   const field =
-    'w-full bg-ink/50 border border-signal/12 focus:border-signal outline-none px-4 py-4 text-paper placeholder:text-paper/30 text-base md:text-lg font-medium tracking-tight transition-colors'
+    'w-full bg-ink/50 border border-signal/12 focus:border-signal outline-none px-4 py-4 text-paper placeholder:text-paper/30 text-base md:text-lg font-medium tracking-normal transition-colors'
 
   return (
     <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
       <div>
-        <label htmlFor="name" className="eyebrow block mb-2">01 / Name</label>
+        <label htmlFor="name" className="eyebrow mb-2 block">01 / Name</label>
         <input
           id="name"
           required
@@ -33,7 +33,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="eyebrow block mb-2">02 / Email</label>
+        <label htmlFor="email" className="eyebrow mb-2 block">02 / Email</label>
         <input
           id="email"
           type="email"
@@ -46,7 +46,7 @@ export default function ContactForm() {
       </div>
 
       <div className="md:col-span-2">
-        <label htmlFor="subject" className="eyebrow block mb-2">03 / Subject</label>
+        <label htmlFor="subject" className="eyebrow mb-2 block">03 / Subject</label>
         <select
           id="subject"
           value={subject}
@@ -63,7 +63,7 @@ export default function ContactForm() {
       </div>
 
       <div className="md:col-span-2">
-        <label htmlFor="message" className="eyebrow block mb-2">04 / Message</label>
+        <label htmlFor="message" className="eyebrow mb-2 block">04 / Message</label>
         <textarea
           id="message"
           required
@@ -77,7 +77,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="md:col-span-2 group inline-flex items-center justify-between gap-4 bg-signal text-ink px-6 py-5 text-[12px] uppercase tracking-[0.2em] font-semibold shadow-[0_0_24px_rgba(32,214,255,0.25)] hover:bg-paper hover:text-ink transition-colors"
+        className="group inline-flex items-center justify-between gap-4 bg-signal px-6 py-5 text-[12px] font-semibold uppercase tracking-[0.2em] text-ink shadow-[0_0_24px_rgba(32,214,255,0.25)] transition-colors hover:bg-paper hover:text-ink md:col-span-2"
       >
         Send message
         <ArrowRight size={16} strokeWidth={2} className="transition-transform group-hover:translate-x-1" />

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Radio } from 'lucide-react'
+import { ArrowUpRight, Mail, Radio } from 'lucide-react'
 import { SITE } from '@/lib/content'
 
 export default function Footer() {
@@ -12,47 +12,57 @@ export default function Footer() {
   ].filter((s) => !s.href.trim().startsWith('[PLACEHOLDER'))
 
   return (
-    <footer className="bg-ink text-paper border-t border-signal/12">
+    <footer className="border-t border-signal/12 bg-ink text-paper">
       <div className="container-edge py-14 md:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_420px] border border-signal/14 bg-bone/52">
-          <Link
-            to="/contact"
-            className="group p-6 md:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-signal/14"
-          >
-            <div className="inline-flex items-center gap-2 bg-signal text-ink px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] font-semibold mb-7">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_420px]">
+          <div>
+            <div className="mb-7 inline-flex items-center gap-2 bg-signal px-3 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-ink">
               <Radio size={13} strokeWidth={2.25} />
-              Booking Desk
+              Keep The Signal Open
             </div>
-            <h2 className="display max-w-5xl text-4xl md:text-6xl lg:text-[78px] font-semibold leading-[0.98] tracking-[-0.04em] text-paper">
-              Stories, interviews, tips, and conversations can start here.
+            <h2 className="display max-w-5xl text-4xl font-semibold leading-tight tracking-normal text-paper md:text-6xl lg:text-[72px]">
+              Send tips, booking requests, and conversations to the desk.
             </h2>
-            <div className="mt-8 inline-flex items-center gap-4 font-mono text-[11px] uppercase tracking-[0.2em] text-paper/70 group-hover:text-signal transition-colors">
-              <span>{SITE.email}</span>
-              <ArrowUpRight size={16} strokeWidth={2} />
-            </div>
-          </Link>
+            <Link
+              to="/contact"
+              className="group mt-8 inline-flex items-center gap-3 border border-signal/22 bg-signal/8 px-5 py-3.5 text-[12px] font-semibold uppercase tracking-[0.2em] text-paper transition-colors hover:bg-signal hover:text-ink"
+            >
+              Contact Evan
+              <ArrowUpRight size={15} strokeWidth={2} />
+            </Link>
+          </div>
 
-          <aside className="p-6 md:p-8">
-            <div className="flex items-center gap-4 border-b border-signal/14 pb-6 mb-6">
+          <aside className="border-l-0 border-signal/16 lg:border-l lg:pl-10">
+            <div className="flex items-center gap-4 border-b border-signal/14 pb-6">
               <img
                 src="/brand-profile-blue.png"
                 alt={SITE.network}
-                className="h-16 w-16 rounded-full object-cover object-center ring-2 ring-signal/80 shadow-[0_0_18px_rgba(32,214,255,0.2)]"
-                onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
+                className="h-16 w-16 rounded-full object-cover object-center ring-2 ring-signal/80"
+                onError={(e) => {
+                  ;(e.currentTarget as HTMLImageElement).style.display = 'none'
+                }}
               />
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-signal/90 mb-1">
+                <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.22em] text-signal/90">
                   {SITE.brandMark}
                 </p>
-                <p className="font-semibold text-2xl tracking-[-0.02em] text-paper">
-                  {SITE.name}
-                </p>
+                <p className="text-2xl font-semibold tracking-normal text-paper">{SITE.name}</p>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
+            <a
+              href={`mailto:${SITE.email}`}
+              className="group mt-6 flex items-center gap-3 text-paper/86 transition-colors hover:text-signal"
+            >
+              <Mail size={17} strokeWidth={2} />
+              <span className="break-all font-semibold">{SITE.email}</span>
+            </a>
+
+            <div className="mt-8 grid grid-cols-2 gap-8">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/42 mb-4">Index</p>
+                <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-paper/42">
+                  Index
+                </p>
                 <ul className="space-y-3 text-sm">
                   <li><Link to="/about" className="text-paper/80 hover:text-signal">About</Link></li>
                   <li><Link to="/work" className="text-paper/80 hover:text-signal">Archive</Link></li>
@@ -61,7 +71,9 @@ export default function Footer() {
               </div>
 
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/42 mb-4">Follow</p>
+                <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-paper/42">
+                  Follow
+                </p>
                 <ul className="space-y-3 text-sm">
                   {socials.map((s) => (
                     <li key={s.label}>
@@ -69,27 +81,22 @@ export default function Footer() {
                         href={s.href}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 text-paper/80 hover:text-signal group"
+                        className="inline-flex items-center gap-2 text-paper/80 hover:text-signal"
                       >
                         {s.label}
-                        <ArrowUpRight size={12} strokeWidth={2} className="opacity-60 group-hover:opacity-100" />
+                        <ArrowUpRight size={12} strokeWidth={2} />
                       </a>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
-
-            <div className="mt-8 border-t border-signal/14 pt-5 text-[11px] uppercase tracking-[0.18em] text-paper/40 font-mono">
-              <p>{SITE.location}</p>
-              <p className="mt-2">{SITE.channelHandle}</p>
-            </div>
           </aside>
         </div>
 
-        <div className="mt-6 flex flex-col sm:flex-row justify-between gap-2 text-[11px] uppercase tracking-[0.18em] text-paper/36 font-mono">
-          <span>© {year} {SITE.name}. All rights reserved.</span>
-          <span>Signal locked / blue desk system</span>
+        <div className="mt-12 flex flex-col justify-between gap-2 border-t border-signal/12 pt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-paper/36 sm:flex-row">
+          <span>(c) {year} {SITE.name}. All rights reserved.</span>
+          <span>{SITE.location} / {SITE.channelHandle}</span>
         </div>
       </div>
     </footer>

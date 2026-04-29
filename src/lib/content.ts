@@ -94,7 +94,7 @@ export const VIDEOS: Video[] = [
   },
   {
     id: "jpNfxc3OfEs",
-    title: "Megyn Kelly Says SHE'S SICK OF TRUMP on LIVE SHOW!",
+    title: "Megyn Kelly Says SHE'S SICK OF TRUMP During Broadcast!",
     date: "Apr 23, 2026",
     summary: [
       "This episode tracks a public break in tone from Megyn Kelly and uses it as a signal of fatigue inside the broader right-wing media ecosystem. The story is presented as more than a single on-air complaint.",
@@ -125,7 +125,7 @@ export const VIDEOS: Video[] = [
     date: "Apr 17, 2026",
     summary: [
       "This video appears to center on market influence, political messaging, and the optics of a president publicly boosting a specific stock. The framing suggests a critique of blurred lines between political power, media reach, and financial gain.",
-      "For the site archive, it reads as a tighter analysis of how even a short post can become a larger story about influence, incentives, and whether the audience is watching politics or live market theater.",
+      "For the site archive, it reads as a tighter analysis of how even a short post can become a larger story about influence, incentives, and whether the audience is watching politics or real-time market theater.",
     ],
   },
   {
