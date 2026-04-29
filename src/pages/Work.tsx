@@ -22,10 +22,10 @@ export default function Work() {
         <div className="relative container-edge pb-16 pt-36 md:pt-44">
           <div className="max-w-6xl">
             <p className="mb-6 font-mono text-[10px] uppercase tracking-[0.22em] text-signal">
-              Work / Episode Archive
+              Work / Episode Catalog
             </p>
             <h1 className="display text-5xl font-semibold leading-tight tracking-normal text-paper sm:text-7xl lg:text-[92px]">
-              A cleaner archive for fast political reads.
+              A cleaner catalog for fast political reads.
             </h1>
             <p className="mt-7 max-w-2xl leading-relaxed text-paper/72">
               Newest video first, then the rest arranged as a readable index with dates, summaries, and direct YouTube exits.
@@ -49,7 +49,7 @@ export default function Work() {
               href="#lead-video"
               className="inline-flex items-center gap-3 bg-signal px-5 py-3.5 text-[12px] font-semibold uppercase tracking-[0.2em] text-ink transition-colors hover:bg-paper"
             >
-              Play below <ArrowRight size={14} strokeWidth={2} />
+              Featured episode <ArrowRight size={14} strokeWidth={2} />
             </a>
           </div>
 

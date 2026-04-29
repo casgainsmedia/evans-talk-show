@@ -5,7 +5,7 @@ import { SITE } from '@/lib/content'
 
 const links = [
   { to: '/about', label: 'About' },
-  { to: '/work', label: 'Archive' },
+  { to: '/work', label: 'Catalog' },
   { to: '/contact', label: 'Contact' },
 ]
 

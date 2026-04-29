@@ -33,19 +33,19 @@ export default function Home() {
                 Latest Episode
               </p>
               <h2 className="display max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-paper md:text-6xl">
-                The newest argument sits up front.
+                Trump LOSES CONTROL and THREATENS to JAIL JOURNALISTS
               </h2>
-              <p className="mt-5 max-w-2xl text-paper/66">
-                Viewers get a direct play surface, a clean read on the story, and a route into the full archive without the old page feeling crowded.
+              <p className="mt-5 max-w-3xl text-paper/66">
+                The featured upload frames Trump's threat to jail journalists as a direct test of press freedom, political intimidation, and the point where campaign rhetoric starts reading like state power.
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-3 md:grid-cols-4 xl:grid-cols-2">
               {[
-                ['Base', SITE.location],
-                ['Mode', 'Commentary'],
-                ['Focus', 'Politics'],
-                ['Channel', SITE.channelHandle],
+                ['Channel', "Evan's Talk Show"],
+                ['Joined', 'Nov 10, 2016'],
+                ['Subscribers', '119'],
+                ['Uploads', '21 videos'],
               ].map(([label, value]) => (
                 <div key={label} className="border border-signal/14 bg-black/24 p-5">
                   <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-paper/42">
@@ -72,12 +72,16 @@ export default function Home() {
                   <p key={para}>{para}</p>
                 ))}
               </div>
-              <Link
-                to={`/work?video=${featured.id}#lead-video`}
-                className="mt-8 inline-flex items-center gap-3 bg-signal px-5 py-3.5 text-[12px] font-semibold uppercase tracking-[0.2em] text-ink transition-colors hover:bg-paper"
-              >
-                Play in site <ArrowRight size={14} strokeWidth={2} />
-              </Link>
+              <div className="mt-8 grid grid-cols-2 gap-3 border-t border-signal/12 pt-5">
+                <div className="border border-signal/12 bg-signal/[0.04] p-4">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-paper/42">Views</p>
+                  <p className="mt-2 text-2xl font-semibold tracking-normal text-paper">34</p>
+                </div>
+                <div className="border border-signal/12 bg-signal/[0.04] p-4">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-paper/42">Likes</p>
+                  <p className="mt-2 text-2xl font-semibold tracking-normal text-paper">1</p>
+                </div>
+              </div>
             </aside>
           </div>
         </div>
@@ -96,7 +100,7 @@ export default function Home() {
               to="/work"
               className="mt-8 inline-flex items-center gap-3 border border-signal/22 bg-signal/8 px-5 py-3.5 text-[12px] font-semibold uppercase tracking-[0.2em] text-paper transition-colors hover:bg-signal hover:text-ink"
             >
-              Full archive <ArrowRight size={14} strokeWidth={2} />
+              Full catalog <ArrowRight size={14} strokeWidth={2} />
             </Link>
           </div>
 
